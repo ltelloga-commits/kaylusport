@@ -1,96 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KayluSport | Tienda Deportiva</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KayluSport | Tienda Deportiva</title>
 
-  <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-      url("https://images.unsplash.com/photo-1505842465776-3d90f616310d");
-      background-size: cover;
-      background-attachment: fixed;
-      color:#fff;
-    }
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+  url("https://images.unsplash.com/photo-1505842465776-3d90f616310d");
+  background-size: cover;
+  background-attachment: fixed;
+  color:#fff;
+}
 
+header{
+  text-align:center;
+  padding:20px;
+}
+
+nav a{
+  color:#fff;
+  margin:0 10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+section{
+  padding:40px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+h2{
+  text-align:center;
+  color:#f9d423;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#fff;
+  color:#000;
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+}
+
+.price{
+  font-weight:bold;
+  margin:8px 0;
+}
+
+.sizes{
+  font-size:0.9rem;
+  margin-bottom:10px;
+}
+
+.whatsapp{
+  display:inline-block;
+  background:#25D366;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:6px;
+  text-decoration:none;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+}
+
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px 18px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+  z-index:1000;
+}
+</style>
+</head>
+
+<body>
 
 <header>
-<div style="background:#f9d423;color:#000;padding:10px;font-weight:700;">🚚 Envíos a toda la región y el Perú</div>
-<img src="logo-kaylusport.png" alt="KayluSport" style="max-width:140px;margin:20px auto 10px;display:block;" />
-<h1>KayluSport</h1>
-<p>Pasión por el fútbol • Camisetas y accesorios deportivos</p>
-<nav>
-<a href="#actuales">Camisetas Actuales</a>
-<a href="#retro">Camisetas Retro</a>
-<a href="#short">Short</a>
-<a href="#casacas">Casacas y Buzos</a>
-<a href="#medias">Medias</a>
-<a href="#souvenirs">Souvenirs</a>
-</nav>
-</header>
+  <div style="background:#f9d423;color:#000;padding:10px;font-weight:700;">
+    🚚 Envíos a toda la región y el Perú
+  </div>
 
+  <img src="logo-kaylusport.png" style="max-width:140px;margin:20px auto;display:block;">
+  <h1>KayluSport</h1>
+  <p>Pasión por el fútbol • Camisetas y accesorios deportivos</p>
+
+  <nav>
+    <a href="#actuales">Actuales</a>
+    <a href="#retro">Retro</a>
+    <a href="#short">Short</a>
+    <a href="#casacas">Casacas</a>
+    <a href="#medias">Medias</a>
+    <a href="#souvenirs">Souvenirs</a>
+  </nav>
+</header>
 
 <section id="actuales">
 <h2>Camisetas Actuales</h2>
 <div class="grid">
-<div class="card"><img /><p>Camiseta Local / Visita</p><div class="price">S/ 85.00</div><div class="sizes">Tallas: S - M - L - XL</div><a class="whatsapp" href="https://wa.me/51999999999" target="_blank">Comprar por WhatsApp</a></div>
+<div class="card">
+<p>Camiseta Local / Visita</p>
+<div class="price">S/ 85.00</div>
+<div class="sizes">S - M - L - XL</div>
+<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
+</div>
 </div>
 </section>
-
 
 <section id="retro">
 <h2>Camisetas Retro</h2>
 <div class="grid">
-<div class="card"><img /><p>Camiseta Retro Clásica</p><div class="price">S/ 99.00</div><div class="sizes">Tallas: S - M - L - XL</div><a class="whatsapp" href="https://wa.me/51971245962" target="_blank">Comprar por WhatsApp</a></div>
-<div class="card"><img /><p>Edición Histórica</p><div class="price">S/ 105.00</div><div class="sizes">Tallas: S - M - L - XL</div><a class="whatsapp" href="https://wa.me/51971245962" target="_blank">Comprar por WhatsApp</a></div>
+<div class="card">
+<p>Camiseta Retro Clásica</p>
+<div class="price">S/ 99.00</div>
+<div class="sizes">S - M - L - XL</div>
+<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
+</div>
 </div>
 </section>
-
-
-<section id="short">
-<h2>Short</h2>
-<div class="grid">
-<div class="card"><img /><p>Short Deportivo</p><div class="price">S/ 45.00</div><div class="sizes">Tallas: S - M - L</div><a class="whatsapp" href="https://wa.me/51971245962" target="_blank">Comprar por WhatsApp</a></div>
-</div>
-</section>
-
-
-<section id="casacas">
-<h2>Casacas y Buzos</h2>
-<div class="grid">
-<div class="card"><img /><p>Casaca Oficial</p><div class="price">S/ 130.00</div><div class="sizes">Tallas: M - L - XL</div><a class="whatsapp" href="https://wa.me/51971245962" target="_blank">Comprar por WhatsApp</a></div>
-<div class="card"><img /><p>Buzo Deportivo</p><div class="price">S/ 160.00</div><div class="sizes">Tallas: M - L - XL</div><a class="whatsapp" href="https://wa.me/51971245962" target="_blank">Comprar por WhatsApp</a></div>
-</div>
-</section>
-
-
-<section id="medias">
-<h2>Medias</h2>
-<div class="grid">
-<div class="card"><img /><p>Medias de Fútbol</p><div class="price">S/ 20.00</div><div class="sizes">Talla Única</div><a class="whatsapp" href="https://wa.me/51971245962" target="_blank">Comprar por WhatsApp</a></div>
-</div>
-</section>
-
-
-<section id="souvenirs">
-<h2>Souvenirs</h2>
-<div class="grid">
-<div class="card"><img /><p>Llavero Futbolero</p><div class="price">S/ 15.00</div><div class="sizes">—</div><a class="whatsapp" href="https://wa.me/51971245962" target="_blank">Comprar por WhatsApp</a></div>
-<div class="card"><img /><p>Banderín</p><div class="price">S/ 25.00</div><div class="sizes">—</div><a class="whatsapp" href="https://wa.me/51971245962" target="_blank">Comprar por WhatsApp</a></div>
-</div>
-</section>
-
 
 <footer>
 <p>© 2026 KayluSport | Pasión futbolera</p>
-<p>Pedidos y consultas vía WhatsApp</p>
 </footer>
 
+<a class="whatsapp-float" href="https://wa.me/51971245962">💬</a>
 
-<a href="https://wa.me/51971245962" class="whatsapp-float" target="_blank">💬</a>
 </body>
-
 </html>
