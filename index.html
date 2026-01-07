@@ -72,6 +72,38 @@ h2{
   text-decoration:none;
 }
 
+/* ===== SLIDER CAMISETAS ACTUALES ===== */
+.slider{
+  position:relative;
+  width:100%;
+  height:220px;
+  overflow:hidden;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+.slider img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:fade 6s infinite;
+}
+
+.slider img:nth-child(1){ animation-delay:0s; }
+.slider img:nth-child(2){ animation-delay:3s; }
+
+@keyframes fade{
+  0%{opacity:0;}
+  10%{opacity:1;}
+  45%{opacity:1;}
+  55%{opacity:0;}
+  100%{opacity:0;}
+}
+
+/* ================================ */
+
 footer{
   text-align:center;
   padding:20px;
@@ -114,15 +146,22 @@ footer{
   </nav>
 </header>
 
+<!-- CAMISETAS ACTUALES -->
 <section id="actuales">
 <h2>Camisetas Actuales</h2>
 <div class="grid">
-<div class="card">
-<p>Camiseta Local / Visita</p>
-<div class="price">S/ 50.00</div>
-<div class="sizes">S - M - L - XL</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
+  <div class="card">
+
+    <div class="slider">
+      <img src="actual-u.jpg" alt="Camiseta Actual 1">
+      <img src="actual-al.jpg" alt="Camiseta Actual 2">
+    </div>
+
+    <p>Camiseta Local / Visita</p>
+    <div class="price">S/ 50.00</div>
+    <div class="sizes">S - M - L - XL</div>
+    <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
+  </div>
 </div>
 </section>
 
@@ -193,6 +232,7 @@ footer{
 
 </body>
 </html>
+
 
 
 
