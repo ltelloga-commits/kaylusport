@@ -52,7 +52,8 @@ h2{
   border-radius:12px;
   text-align:center;
 }
-  .card img{
+
+.card img{
   width:100%;
   height:260px;
   object-fit:cover;
@@ -80,25 +81,29 @@ h2{
   text-decoration:none;
 }
 
-/* ===== IMÁGENES ESTÁTICAS ===== */
-.img-row{
-  display:flex;
-  gap:10px;
-  margin-bottom:10px;
+/* PRODUCTOS OCULTOS */
+.hidden-product{
+  display:none;
 }
 
-.img-row img{
-  width:50%;
-  border-radius:8px;
+/* BOTÓN VER MÁS */
+.ver-mas-btn{
+  text-align:center;
+  margin-top:30px;
+}
+
+.ver-mas-btn button{
+  background:#f9d423;
+  color:#000;
+  border:none;
+  padding:12px 28px;
+  font-size:16px;
+  font-weight:bold;
+  border-radius:30px;
   cursor:pointer;
-  transition:transform 0.3s;
 }
 
-.img-row img:hover{
-  transform:scale(1.05);
-}
-
-/* ===== LIGHTBOX ===== */
+/* LIGHTBOX */
 .lightbox{
   position:fixed;
   top:0;
@@ -127,8 +132,6 @@ h2{
   cursor:pointer;
 }
 
-/* ============================ */
-
 footer{
   text-align:center;
   padding:20px;
@@ -146,29 +149,6 @@ footer{
   text-decoration:none;
   box-shadow:0 6px 15px rgba(0,0,0,0.3);
   z-index:1000;
-}
-  .hidden-product {
-  display: none;
-}
-
-.ver-mas-btn {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.ver-mas-btn button {
-  background: #f9d423;
-  color: #000;
-  border: none;
-  padding: 12px 25px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
-.ver-mas-btn button:hover {
-  opacity: 0.9;
 }
 </style>
 </head>
@@ -200,10 +180,9 @@ footer{
 
 <div class="grid">
 
-  <!-- VISIBLES -->
   <div class="card">
     <img src="actual-u.jpg" onclick="openLightbox(this.src)">
-    <p>Universitario de Deportes</p>
+    <p>Universitario</p>
     <div class="price">S/ 50.00</div>
     <div class="sizes">S - M - L - XL</div>
     <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
@@ -274,65 +253,6 @@ footer{
 
 </section>
 
-<section id="retro">
-<h2>Camisetas Retro</h2>
-<div class="grid">
-<div class="card">
-<p>Camiseta Retro Clásica</p>
-<div class="price">S/ 60.00</div>
-<div class="sizes">S - M - L - XL</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="short">
-<h2>Short</h2>
-<div class="grid">
-<div class="card">
-<p>Short Deportivo</p>
-<div class="price">S/ 25.00</div>
-<div class="sizes">S - M - L</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="casacas">
-<h2>Casacas y Buzos</h2>
-<div class="grid">
-<div class="card">
-<p>Casaca Oficial</p>
-<div class="price">S/ 130.00</div>
-<div class="sizes">M - L - XL</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="medias">
-<h2>Medias</h2>
-<div class="grid">
-<div class="card">
-<p>Medias de Fútbol</p>
-<div class="price">S/ 10.00</div>
-<div class="sizes">Talla Única</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="souvenirs">
-<h2>Souvenirs</h2>
-<div class="grid">
-<div class="card">
-<p>Llavero Futbolero</p>
-<div class="price">S/ 8.00</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
 <footer>
 <p>© 2026 KayluSport | Pasión futbolera</p>
 </footer>
@@ -341,7 +261,7 @@ footer{
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span onclick="closeLightbox()">✖</span>
+  <span>✖</span>
   <img id="lightbox-img">
 </div>
 
@@ -354,10 +274,23 @@ function openLightbox(src){
 function closeLightbox(){
   document.getElementById("lightbox").style.display = "none";
 }
+
+function verMas(){
+  const ocultos = document.querySelectorAll('.hidden-product');
+  const boton = document.querySelector('.ver-mas-btn button');
+  let abiertos = ocultos[0].style.display === 'block';
+
+  ocultos.forEach(card=>{
+    card.style.display = abiertos ? 'none' : 'block';
+  });
+
+  boton.textContent = abiertos ? 'VER MÁS' : 'VER MENOS';
+}
 </script>
 
 </body>
 </html>
+
 
 
 
