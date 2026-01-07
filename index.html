@@ -253,6 +253,65 @@ footer{
 
 </section>
 
+<section id="retro">
+<h2>Camisetas Retro</h2>
+<div class="grid">
+<div class="card">
+<p>Camiseta Retro Clásica</p>
+<div class="price">S/ 60.00</div>
+<div class="sizes">S - M - L - XL</div>
+<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
+</div>
+</div>
+</section>
+
+<section id="short">
+<h2>Short</h2>
+<div class="grid">
+<div class="card">
+<p>Short Deportivo</p>
+<div class="price">S/ 25.00</div>
+<div class="sizes">S - M - L</div>
+<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
+</div>
+</div>
+</section>
+
+<section id="casacas">
+<h2>Casacas y Buzos</h2>
+<div class="grid">
+<div class="card">
+<p>Casaca Oficial</p>
+<div class="price">S/ 130.00</div>
+<div class="sizes">M - L - XL</div>
+<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
+</div>
+</div>
+</section>
+
+<section id="medias">
+<h2>Medias</h2>
+<div class="grid">
+<div class="card">
+<p>Medias de Fútbol</p>
+<div class="price">S/ 10.00</div>
+<div class="sizes">Talla Única</div>
+<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
+</div>
+</div>
+</section>
+
+<section id="souvenirs">
+<h2>Souvenirs</h2>
+<div class="grid">
+<div class="card">
+<p>Llavero Futbolero</p>
+<div class="price">S/ 8.00</div>
+<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
+</div>
+</div>
+</section>
+
 <footer>
 <p>© 2026 KayluSport | Pasión futbolera</p>
 </footer>
@@ -261,7 +320,7 @@ footer{
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span>✖</span>
+  <span onclick="closeLightbox()">✖</span>
   <img id="lightbox-img">
 </div>
 
@@ -274,24 +333,10 @@ function openLightbox(src){
 function closeLightbox(){
   document.getElementById("lightbox").style.display = "none";
 }
-
-function verMas(){
-  const ocultos = document.querySelectorAll('.hidden-product');
-  const boton = document.querySelector('.ver-mas-btn button');
-  let abiertos = ocultos[0].style.display === 'block';
-
-  ocultos.forEach(card=>{
-    card.style.display = abiertos ? 'none' : 'block';
-  });
-
-  boton.textContent = abiertos ? 'VER MÁS' : 'VER MENOS';
-}
 </script>
 
 </body>
 </html>
-
-
 
 
 
