@@ -172,6 +172,11 @@ footer{
   background:#25D366;
   color:#fff;
 }
+
+  .ver-mas-btn button.active{
+  background:#25D366;
+  color:#fff;
+}
 </style>
 </head>
 
@@ -200,12 +205,12 @@ footer{
 <section id="actuales">
 <h2>Camisetas Actuales</h2>
 
- <div class="ver-mas-btn filtros">
-  <button class="filtro-btn activo" onclick="filtrar('todos', this)">TODOS</button>
-  <button class="filtro-btn" onclick="filtrar('peru', this)">PERÚ</button>
-  <button class="filtro-btn" onclick="filtrar('europa', this)">EUROPA</button>
-  <button class="filtro-btn" onclick="filtrar('selecciones', this)">SELECCIONES</button>
-  <button class="filtro-btn" onclick="filtrar('resto-del-mundo', this)">RESTO DEL MUNDO</button>
+ <div class="ver-mas-btn">
+  <button data-filter="todos" onclick="filtrar('todos', this)">TODOS</button>
+  <button data-filter="peru" onclick="filtrar('peru', this)">PERÚ</button>
+  <button data-filter="europa" onclick="filtrar('europa', this)">EUROPA</button>
+  <button data-filter="selecciones" onclick="filtrar('selecciones', this)">SELECCIONES</button>
+  <button data-filter="resto-del-mundo" onclick="filtrar('resto-del-mundo', this)">RESTO DEL MUNDO</button>
 </div>
 
 <div class="grid" id="productosActuales">
@@ -353,10 +358,18 @@ function toggleProductos(){
   mostrar();
 }
 
-  function filtrar(categoria){
+  function filtrar(categoria, boton){
   visibles = productos.length;
   expandido = true;
 
+  // 🔹 quitar activo a todos los botones
+  document.querySelectorAll(".ver-mas-btn button")
+    .forEach(b => b.classList.remove("active"));
+
+  // 🔹 activar el botón clickeado
+  boton.classList.add("active");
+
+  // 🔹 filtrar productos
   productos.forEach(p => {
     if(categoria === "todos" || p.dataset.category === categoria){
       p.style.display = "block";
@@ -369,7 +382,6 @@ function toggleProductos(){
 
   document.getElementById("btnToggle").textContent = "VER MENOS";
 }
-mostrar();
 
 /* 🔥 LIGHTBOX (ESTO FALTABA) */
 function openLightbox(src){
@@ -387,6 +399,7 @@ function closeLightbox(){
 
 </body>
 </html>
+
 
 
 
