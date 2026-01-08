@@ -278,6 +278,7 @@ footer{
 const productos = document.querySelectorAll(".producto");
 const porPagina = 3;
 let visibles = 3;
+let expandido = false;
 
 function mostrar(){
   productos.forEach((p,i)=>{
@@ -293,16 +294,18 @@ function mostrar(){
 
 function toggleProductos(){
   const btn = document.getElementById("btnToggle");
-  visibles += porPagina;
 
-  if(visibles >= productos.length){
-    visibles = productos.length;
-    btn.textContent = "VER MENOS";
-  }
-
-  if(btn.textContent === "VER MENOS"){
+  if(!expandido){
+    visibles += porPagina;
+    if(visibles >= productos.length){
+      visibles = productos.length;
+      btn.textContent = "VER MENOS";
+      expandido = true;
+    }
+  }else{
     visibles = porPagina;
     btn.textContent = "VER MÁS";
+    expandido = false;
     document.getElementById("actuales").scrollIntoView({behavior:"smooth"});
   }
 
@@ -310,19 +313,11 @@ function toggleProductos(){
 }
 
 mostrar();
-
-function openLightbox(src){
-  document.getElementById("lightbox-img").src = src;
-  document.getElementById("lightbox").style.display = "flex";
-}
-
-function closeLightbox(){
-  document.getElementById("lightbox").style.display = "none";
-}
 </script>
 
 </body>
 </html>
+
 
 
 
