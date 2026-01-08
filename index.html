@@ -156,6 +156,22 @@ footer{
   font-size:30px;
   cursor:pointer;
 }
+
+  .filtro-btn{
+  background:#f9d423;
+  color:#000;
+  border:none;
+  padding:10px 18px;
+  margin:4px;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.filtro-btn.activo{
+  background:#25D366;
+  color:#fff;
+}
 </style>
 </head>
 
@@ -184,12 +200,12 @@ footer{
 <section id="actuales">
 <h2>Camisetas Actuales</h2>
 
-  <div class="ver-mas-btn">
-  <button onclick="filtrar('todos')">TODOS</button>
-  <button onclick="filtrar('peru')">PERÚ</button>
-  <button onclick="filtrar('europa')">EUROPA</button>
-  <button onclick="filtrar('selecciones')">SELECCIONES</button>
-  <button onclick="filtrar('resto-del-mundo')">RESTO DEL MUNDO</button>
+ <div class="ver-mas-btn filtros">
+  <button class="filtro-btn activo" onclick="filtrar('todos', this)">TODOS</button>
+  <button class="filtro-btn" onclick="filtrar('peru', this)">PERÚ</button>
+  <button class="filtro-btn" onclick="filtrar('europa', this)">EUROPA</button>
+  <button class="filtro-btn" onclick="filtrar('selecciones', this)">SELECCIONES</button>
+  <button class="filtro-btn" onclick="filtrar('resto-del-mundo', this)">RESTO DEL MUNDO</button>
 </div>
 
 <div class="grid" id="productosActuales">
@@ -371,6 +387,7 @@ function closeLightbox(){
 
 </body>
 </html>
+
 
 
 
