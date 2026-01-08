@@ -333,10 +333,21 @@ function openLightbox(src){
 function closeLightbox(){
   document.getElementById("lightbox").style.display = "none";
 }
+
+/* ===== VER MÁS ===== */
+function verMas(){
+  const ocultos = document.querySelectorAll(".hidden-product");
+  ocultos.forEach(card => {
+    card.style.display = "block";
+  });
+
+  document.querySelector(".ver-mas-btn").style.display = "none";
+}
 </script>
 
 </body>
 </html>
+
 
 
 
