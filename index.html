@@ -51,6 +51,14 @@ h2{
   padding:15px;
   border-radius:12px;
   text-align:center;
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .card img{
@@ -81,12 +89,6 @@ h2{
   text-decoration:none;
 }
 
-/* PRODUCTOS OCULTOS */
-.hidden-product{
-  display:none;
-}
-
-/* BOTÓN VER MÁS */
 .ver-mas-btn{
   text-align:center;
   margin-top:30px;
@@ -96,11 +98,30 @@ h2{
   background:#f9d423;
   color:#000;
   border:none;
-  padding:12px 28px;
+  padding:12px 30px;
   font-size:16px;
   font-weight:bold;
   border-radius:30px;
   cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+}
+
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px 18px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+  z-index:1000;
 }
 
 /* LIGHTBOX */
@@ -131,25 +152,6 @@ h2{
   font-size:30px;
   cursor:pointer;
 }
-
-footer{
-  text-align:center;
-  padding:20px;
-}
-
-.whatsapp-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:15px 18px;
-  border-radius:50%;
-  font-size:22px;
-  text-decoration:none;
-  box-shadow:0 6px 15px rgba(0,0,0,0.3);
-  z-index:1000;
-}
 </style>
 </head>
 
@@ -178,137 +180,22 @@ footer{
 <section id="actuales">
 <h2>Camisetas Actuales</h2>
 
-<div class="grid">
+<div class="grid" id="productosActuales">
 
-  <div class="card">
-    <img src="actual-u.jpg" onclick="openLightbox(this.src)">
-    <p>Universitario</p>
-    <div class="price">S/ 50.00</div>
-    <div class="sizes">S - M - L - XL</div>
-    <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-  </div>
-
-  <div class="card">
-    <img src="actual-al.jpg" onclick="openLightbox(this.src)">
-    <p>Alianza Lima</p>
-    <div class="price">S/ 50.00</div>
-    <div class="sizes">S - M - L - XL</div>
-    <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-  </div>
-
-  <div class="card">
-    <img src="actual-rm.jpg" onclick="openLightbox(this.src)">
-    <p>Real Madrid</p>
-    <div class="price">S/ 50.00</div>
-    <div class="sizes">S - M - L - XL</div>
-    <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-  </div>
-
-  <div class="card">
-    <img src="actual-che-a.jpg" onclick="openLightbox(this.src)">
-    <p>Chelsea</p>
-    <div class="price">S/ 50.00</div>
-    <div class="sizes">S - M - L - XL</div>
-    <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-  </div>
-
-  <div class="card">
-    <img src="actual-juve-a.jpg" onclick="openLightbox(this.src)">
-    <p>Juventus</p>
-    <div class="price">S/ 50.00</div>
-    <div class="sizes">S - M - L - XL</div>
-    <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-  </div>
-
-  <div class="card">
-    <img src="actual-bayer.jpg" onclick="openLightbox(this.src)">
-    <p>Bayern Múnich</p>
-    <div class="price">S/ 50.00</div>
-    <div class="sizes">S - M - L - XL</div>
-    <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-  </div>
-
-  <!-- OCULTAS -->
-  <div class="card hidden-product">
-    <img src="actual-bar-alt.jpg" onclick="openLightbox(this.src)">
-    <p>Barcelona Alterna</p>
-    <div class="price">S/ 50.00</div>
-    <div class="sizes">S - M - L - XL</div>
-    <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-  </div>
-
-  <div class="card hidden-product">
-    <img src="actual-port-negro.jpg" onclick="openLightbox(this.src)">
-    <p>Portugal Negra</p>
-    <div class="price">S/ 50.00</div>
-    <div class="sizes">S - M - L - XL</div>
-    <a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-  </div>
+  <!-- AGREGA TODAS TUS CAMISETAS AQUÍ -->
+  <div class="card producto"><img src="actual-u.jpg" onclick="openLightbox(this.src)"><p>Universitario</p><div class="price">S/ 50.00</div></div>
+  <div class="card producto"><img src="actual-al.jpg" onclick="openLightbox(this.src)"><p>Alianza Lima</p><div class="price">S/ 50.00</div></div>
+  <div class="card producto"><img src="actual-rm.jpg" onclick="openLightbox(this.src)"><p>Real Madrid</p><div class="price">S/ 50.00</div></div>
+  <div class="card producto"><img src="actual-che-a.jpg" onclick="openLightbox(this.src)"><p>Chelsea</p><div class="price">S/ 50.00</div></div>
+  <div class="card producto"><img src="actual-juve-a.jpg" onclick="openLightbox(this.src)"><p>Juventus</p><div class="price">S/ 50.00</div></div>
+  <div class="card producto"><img src="actual-bayer.jpg" onclick="openLightbox(this.src)"><p>Bayern</p><div class="price">S/ 50.00</div></div>
+  <div class="card producto"><img src="actual-bar-alt.jpg" onclick="openLightbox(this.src)"><p>Barcelona</p><div class="price">S/ 50.00</div></div>
+  <div class="card producto"><img src="actual-port-negro.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div></div>
 
 </div>
 
 <div class="ver-mas-btn">
-  <button id="toggleBtn" onclick="toggleProductos()">VER MÁS</button>
-</div>
-
-</section>
-
-<section id="retro">
-<h2>Camisetas Retro</h2>
-<div class="grid">
-<div class="card">
-<p>Camiseta Retro Clásica</p>
-<div class="price">S/ 60.00</div>
-<div class="sizes">S - M - L - XL</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="short">
-<h2>Short</h2>
-<div class="grid">
-<div class="card">
-<p>Short Deportivo</p>
-<div class="price">S/ 25.00</div>
-<div class="sizes">S - M - L</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="casacas">
-<h2>Casacas y Buzos</h2>
-<div class="grid">
-<div class="card">
-<p>Casaca Oficial</p>
-<div class="price">S/ 130.00</div>
-<div class="sizes">M - L - XL</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="medias">
-<h2>Medias</h2>
-<div class="grid">
-<div class="card">
-<p>Medias de Fútbol</p>
-<div class="price">S/ 10.00</div>
-<div class="sizes">Talla Única</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="souvenirs">
-<h2>Souvenirs</h2>
-<div class="grid">
-<div class="card">
-<p>Llavero Futbolero</p>
-<div class="price">S/ 8.00</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
+  <button id="btnToggle" onclick="toggleProductos()">VER MÁS</button>
 </div>
 </section>
 
@@ -325,7 +212,41 @@ footer{
 </div>
 
 <script>
-let mostrandoTodo = false;
+const productos = document.querySelectorAll(".producto");
+const porPagina = 3;
+let visibles = 3;
+
+function mostrar(){
+  productos.forEach((p,i)=>{
+    if(i < visibles){
+      p.style.display = "block";
+      setTimeout(()=>p.classList.add("visible"),50);
+    }else{
+      p.style.display = "none";
+      p.classList.remove("visible");
+    }
+  });
+}
+
+function toggleProductos(){
+  const btn = document.getElementById("btnToggle");
+  visibles += porPagina;
+
+  if(visibles >= productos.length){
+    visibles = productos.length;
+    btn.textContent = "VER MENOS";
+  }
+
+  if(btn.textContent === "VER MENOS"){
+    visibles = porPagina;
+    btn.textContent = "VER MÁS";
+    document.getElementById("actuales").scrollIntoView({behavior:"smooth"});
+  }
+
+  mostrar();
+}
+
+mostrar();
 
 function openLightbox(src){
   document.getElementById("lightbox-img").src = src;
@@ -335,32 +256,11 @@ function openLightbox(src){
 function closeLightbox(){
   document.getElementById("lightbox").style.display = "none";
 }
-
-/* ===== VER MÁS / VER MENOS ===== */
-function toggleProductos(){
-  const ocultos = document.querySelectorAll(".hidden-product");
-  const boton = document.getElementById("toggleBtn");
-
-  if(!mostrandoTodo){
-    ocultos.forEach(card => {
-      card.style.display = "block";
-    });
-    boton.textContent = "VER MENOS";
-    mostrandoTodo = true;
-  } else {
-    ocultos.forEach(card => {
-      card.style.display = "none";
-    });
-    boton.textContent = "VER MÁS";
-    mostrandoTodo = false;
-
-    document.getElementById("actuales").scrollIntoView({ behavior: "smooth" });
-  }
-}
 </script>
 
 </body>
 </html>
+
 
 
 
