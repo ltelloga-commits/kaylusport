@@ -248,7 +248,7 @@ footer{
 </div>
 
 <div class="ver-mas-btn">
-  <button onclick="verMas()">VER MÁS</button>
+  <button id="toggleBtn" onclick="toggleProductos()">VER MÁS</button>
 </div>
 
 </section>
@@ -325,6 +325,8 @@ footer{
 </div>
 
 <script>
+let mostrandoTodo = false;
+
 function openLightbox(src){
   document.getElementById("lightbox-img").src = src;
   document.getElementById("lightbox").style.display = "flex";
@@ -334,19 +336,32 @@ function closeLightbox(){
   document.getElementById("lightbox").style.display = "none";
 }
 
-/* ===== VER MÁS ===== */
-function verMas(){
+/* ===== VER MÁS / VER MENOS ===== */
+function toggleProductos(){
   const ocultos = document.querySelectorAll(".hidden-product");
-  ocultos.forEach(card => {
-    card.style.display = "block";
-  });
+  const boton = document.getElementById("toggleBtn");
 
-  document.querySelector(".ver-mas-btn").style.display = "none";
+  if(!mostrandoTodo){
+    ocultos.forEach(card => {
+      card.style.display = "block";
+    });
+    boton.textContent = "VER MENOS";
+    mostrandoTodo = true;
+  } else {
+    ocultos.forEach(card => {
+      card.style.display = "none";
+    });
+    boton.textContent = "VER MÁS";
+    mostrandoTodo = false;
+
+    document.getElementById("actuales").scrollIntoView({ behavior: "smooth" });
+  }
 }
 </script>
 
 </body>
 </html>
+
 
 
 
