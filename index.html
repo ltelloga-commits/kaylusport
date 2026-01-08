@@ -367,14 +367,13 @@ window.addEventListener("load", () => {
   visibles = productos.length;
   expandido = true;
 
-  // 🔹 quitar activo a todos los botones
+  // quitar activo a todos los botones
   document.querySelectorAll(".ver-mas-btn button")
     .forEach(b => b.classList.remove("active"));
 
-  // 🔹 activar el botón clickeado
+  // activar solo el botón clickeado
   boton.classList.add("active");
 
-  // 🔹 filtrar productos
   productos.forEach(p => {
     if(categoria === "todos" || p.dataset.category === categoria){
       p.style.display = "block";
@@ -404,6 +403,7 @@ function closeLightbox(){
 
 </body>
 </html>
+
 
 
 
