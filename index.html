@@ -206,11 +206,11 @@ footer{
 <h2>Camisetas Actuales</h2>
 
  <div class="ver-mas-btn">
-  <button data-filter="todos" onclick="filtrar('todos', this)">TODOS</button>
-  <button data-filter="peru" onclick="filtrar('peru', this)">PERÚ</button>
-  <button data-filter="europa" onclick="filtrar('europa', this)">EUROPA</button>
-  <button data-filter="selecciones" onclick="filtrar('selecciones', this)">SELECCIONES</button>
-  <button data-filter="resto-del-mundo" onclick="filtrar('resto-del-mundo', this)">RESTO DEL MUNDO</button>
+  <button id="btnTodos" onclick="filtrar('todos', this)">TODOS</button>
+  <button onclick="filtrar('peru', this)">PERÚ</button>
+  <button onclick="filtrar('europa', this)">EUROPA</button>
+  <button onclick="filtrar('seleccion', this)">SELECCIONES</button>
+  <button onclick="filtrar('resto-del-mundo', this)">RESTO DEL MUNDO</button>
 </div>
 
 <div class="grid" id="productosActuales">
@@ -355,7 +355,12 @@ function toggleProductos(){
       .scrollIntoView({behavior:"smooth"});
   }
 
+ <script>
+window.addEventListener("load", () => {
   mostrar();
+  filtrar("todos", document.getElementById("btnTodos"));
+});
+</script>
 }
 
   function filtrar(categoria, boton){
@@ -399,6 +404,7 @@ function closeLightbox(){
 
 </body>
 </html>
+
 
 
 
