@@ -328,19 +328,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let mostrados = 6;
   
   const productos = document.querySelectorAll(".producto");
-  const porPagina = 3;
-  let visibles = 3;
-  let expandido = false;
-
-  function mostrar(){
-    productos.forEach((p,i)=>{
-      if(i < visibles){
-        p.style.display = "block";
-        setTimeout(()=>p.classList.add("visible"),50);
-      }else{
-        p.style.display = "none";
-        p.classList.remove("visible");
-      }
+  
+        filtrar("todos", document.getElementById("btnTodos"));
     });
   }
 
@@ -423,6 +412,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
 
 
 
