@@ -320,89 +320,84 @@ footer{
 </div>
 
 <script>
-const productos = document.querySelectorAll(".producto");
-const porPagina = 3;
-let visibles = 3;
-let expandido = false;
+document.addEventListener("DOMContentLoaded", function () {
 
-function mostrar(){
-  productos.forEach((p,i)=>{
-    if(i < visibles){
-      p.style.display = "block";
-      setTimeout(()=>p.classList.add("visible"),50);
-    }else{
-      p.style.display = "none";
-      p.classList.remove("visible");
-    }
-  });
-}
+  const productos = document.querySelectorAll(".producto");
+  const porPagina = 3;
+  let visibles = 3;
+  let expandido = false;
 
-function toggleProductos(){
-  const btn = document.getElementById("btnToggle");
-
-  if(!expandido){
-    visibles += porPagina;
-    if(visibles >= productos.length){
-      visibles = productos.length;
-      btn.textContent = "VER MENOS";
-      expandido = true;
-    }
-  }else{
-    visibles = porPagina;
-    btn.textContent = "VER MÁS";
-    expandido = false;
-    document.getElementById("actuales")
-      .scrollIntoView({behavior:"smooth"});
+  function mostrar(){
+    productos.forEach((p,i)=>{
+      if(i < visibles){
+        p.style.display = "block";
+        setTimeout(()=>p.classList.add("visible"),50);
+      }else{
+        p.style.display = "none";
+        p.classList.remove("visible");
+      }
+    });
   }
 
- <script>
-window.addEventListener("load", () => {
+  window.toggleProductos = function(){
+    const btn = document.getElementById("btnToggle");
+
+    if(!expandido){
+      visibles += porPagina;
+      if(visibles >= productos.length){
+        visibles = productos.length;
+        btn.textContent = "VER MENOS";
+        expandido = true;
+      }
+    }else{
+      visibles = porPagina;
+      btn.textContent = "VER MÁS";
+      expandido = false;
+      document.getElementById("actuales")
+        .scrollIntoView({behavior:"smooth"});
+    }
+
+    mostrar();
+  }
+
+  window.filtrar = function(categoria, boton){
+    visibles = productos.length;
+    expandido = true;
+
+    document
+      .querySelectorAll("#actuales .ver-mas-btn button")
+      .forEach(b => b.classList.remove("active"));
+
+    if(boton) boton.classList.add("active");
+
+    productos.forEach(p => {
+      if(categoria === "todos" || p.dataset.category === categoria){
+        p.style.display = "block";
+        p.classList.add("visible");
+      }else{
+        p.style.display = "none";
+        p.classList.remove("visible");
+      }
+    });
+
+    document.getElementById("btnToggle").textContent = "VER MENOS";
+  }
+
+  window.openLightbox = function(src){
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  window.closeLightbox = function(){
+    document.getElementById("lightbox").style.display = "none";
+  }
+
+  // estado inicial
   mostrar();
   filtrar("todos", document.getElementById("btnTodos"));
+
 });
 </script>
-}
-
-  function filtrar(categoria, boton){
-  visibles = productos.length;
-  expandido = true;
-
-  // quitar activo a todos los botones
-  document.querySelectorAll(".ver-mas-btn button")
-    .forEach(b => b.classList.remove("active"));
-
-  // activar solo el botón clickeado
-  boton.classList.add("active");
-
-  productos.forEach(p => {
-    if(categoria === "todos" || p.dataset.category === categoria){
-      p.style.display = "block";
-      setTimeout(()=>p.classList.add("visible"),50);
-    }else{
-      p.style.display = "none";
-      p.classList.remove("visible");
-    }
-  });
-
-  document.getElementById("btnToggle").textContent = "VER MENOS";
-}
-
-/* 🔥 LIGHTBOX (ESTO FALTABA) */
-function openLightbox(src){
-  const lightbox = document.getElementById("lightbox");
-  const img = document.getElementById("lightbox-img");
-
-  img.src = src;
-  lightbox.style.display = "flex";
-}
-
-function closeLightbox(){
-  document.getElementById("lightbox").style.display = "none";
-}
-</script>
-
-</body>
-</html>
 
 
 
