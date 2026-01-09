@@ -322,6 +322,11 @@ footer{
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+  let categoriaActual = "todos";
+  let productosFiltrados = [];
+  const porBloque = 6;
+  let mostrados = 6;
+  
   const productos = document.querySelectorAll(".producto");
   const porPagina = 3;
   let visibles = 3;
@@ -340,48 +345,68 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.toggleProductos = function(){
-    const btn = document.getElementById("btnToggle");
+  const btn = document.getElementById("btnToggle");
 
-    if(!expandido){
-      visibles += porPagina;
-      if(visibles >= productos.length){
-        visibles = productos.length;
-        btn.textContent = "VER MENOS";
-        expandido = true;
-      }
-    }else{
-      visibles = porPagina;
+  mostrados += porBloque;
+
+  if(mostrados >= productosFiltrados.length){
+    mostrados = productosFiltrados.length;
+    btn.textContent = "VER MENOS";
+  }
+
+  if(btn.textContent === "VER MENOS" && mostrados === productosFiltrados.length){
+    btn.onclick = () => {
+      mostrados = porBloque;
       btn.textContent = "VER MÁS";
-      expandido = false;
+      filtrar(categoriaActual, document.querySelector(".active"));
       document.getElementById("actuales")
         .scrollIntoView({behavior:"smooth"});
+    };
+    return;
+  }
+
+  productosFiltrados.forEach((p, i) => {
+    if(i < mostrados){
+      p.style.display = "block";
+      setTimeout(()=>p.classList.add("visible"),50);
     }
+  });
+}
 
     mostrar();
   }
 
   window.filtrar = function(categoria, boton){
-    visibles = productos.length;
-    expandido = true;
+  categoriaActual = categoria;
+  mostrados = porBloque;
 
-    document
-      .querySelectorAll("#actuales .ver-mas-btn button")
-      .forEach(b => b.classList.remove("active"));
+  document
+    .querySelectorAll("#actuales .ver-mas-btn button")
+    .forEach(b => b.classList.remove("active"));
 
-    if(boton) boton.classList.add("active");
+  if(boton) boton.classList.add("active");
 
-    productos.forEach(p => {
-      if(categoria === "todos" || p.dataset.category === categoria){
-        p.style.display = "block";
-        p.classList.add("visible");
-      }else{
-        p.style.display = "none";
-        p.classList.remove("visible");
-      }
-    });
+  productosFiltrados = [...productos].filter(p => {
+    return categoria === "todos" || p.dataset.category === categoria;
+  });
 
-    document.getElementById("btnToggle").textContent = "VER MENOS";
-  }
+  productos.forEach(p => {
+    p.style.display = "none";
+    p.classList.remove("visible");
+  });
+
+  productosFiltrados.forEach((p, i) => {
+    if(i < mostrados){
+      p.style.display = "block";
+      setTimeout(()=>p.classList.add("visible"),50);
+    }
+  });
+
+  document.getElementById("btnToggle").style.display =
+    productosFiltrados.length > porBloque ? "inline-block" : "none";
+
+  document.getElementById("btnToggle").textContent = "VER MÁS";
+}
 
   window.openLightbox = function(src){
     document.getElementById("lightbox-img").src = src;
@@ -398,6 +423,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
 
 
 
