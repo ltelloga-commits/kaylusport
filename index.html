@@ -204,6 +204,8 @@ footer{
 <!-- CAMISETAS ACTUALES -->
 <section id="actuales">
 <h2>Camisetas Actuales</h2>
+
+  <p id="contador" style="text-align:center; margin-bottom:20px; font-weight:bold;"></p>
   
   <div style="text-align:center; margin:20px 0;">
   <input 
@@ -346,6 +348,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const productos = document.querySelectorAll(".producto");
   const btnToggle = document.getElementById("btnToggle");
+  const buscador = document.getElementById("buscador");
+
+  /* ===============================
+     CONTADOR
+  ================================ */
+  function actualizarContador(){
+    const visiblesAhora = productosFiltrados.filter(
+      p => p.style.display !== "none"
+    ).length;
+
+    document.getElementById("contador").textContent =
+      `Mostrando ${visiblesAhora} de ${productosFiltrados.length} camisetas`;
+  }
 
   /* ===============================
      FILTRAR
@@ -380,42 +395,39 @@ document.addEventListener("DOMContentLoaded", function () {
       productosFiltrados.length > porBloque ? "inline-block" : "none";
 
     btnToggle.textContent = "VER MÁS";
+    actualizarContador();
   };
 
-  const buscador = document.getElementById("buscador");
+  /* ===============================
+     BUSCADOR
+  ================================ */
+  buscador.addEventListener("input", function () {
+    const texto = this.value.toLowerCase();
 
-buscador.addEventListener("input", function () {
-  const texto = this.value.toLowerCase();
-
-  // Si no hay texto → volver al estado normal
-  if(texto === ""){
-    mostrados = porBloque;
-    btnToggle.textContent = "VER MÁS";
-    filtrar(categoriaActual, document.querySelector(".active"));
-    return;
-  }
-
-  // 🔥 BUSQUEDA ACTIVA
-  btnToggle.style.display = "none"; // ocultamos ver más
-
-  productos.forEach(p => {
-    const nombre = p.querySelector("p").textContent.toLowerCase();
-
-    if (
-      (categoriaActual === "todos" || p.dataset.category === categoriaActual) &&
-      nombre.includes(texto)
-    ) {
-      p.style.display = "block";
-      setTimeout(()=>p.classList.add("visible"),50);
-    } else {
+    productos.forEach(p => {
       p.style.display = "none";
       p.classList.remove("visible");
-    }
+    });
+
+    productosFiltrados = [...productos].filter(p => {
+      const nombre = p.querySelector("p").textContent.toLowerCase();
+      return (
+        (categoriaActual === "todos" || p.dataset.category === categoriaActual) &&
+        nombre.includes(texto)
+      );
+    });
+
+    productosFiltrados.forEach(p => {
+      p.style.display = "block";
+      setTimeout(()=>p.classList.add("visible"),50);
+    });
+
+    btnToggle.style.display = "none";
+    actualizarContador();
   });
-});
-  
+
   /* ===============================
-     VER MÁS / VER MENOS (FIX)
+     VER MÁS / VER MENOS
   ================================ */
   window.toggleProductos = function(){
 
@@ -446,6 +458,8 @@ buscador.addEventListener("input", function () {
         setTimeout(()=>p.classList.add("visible"),50);
       }
     });
+
+    actualizarContador();
   };
 
   /* ===============================
@@ -467,6 +481,7 @@ buscador.addEventListener("input", function () {
 
 });
 </script>
+
 
 
 
