@@ -204,6 +204,23 @@ footer{
 <!-- CAMISETAS ACTUALES -->
 <section id="actuales">
 <h2>Camisetas Actuales</h2>
+  
+  <div style="text-align:center; margin:20px 0;">
+  <input 
+    type="text" 
+    id="buscador"
+    placeholder="Buscar camiseta..."
+    style="
+      padding:12px 16px;
+      width:100%;
+      max-width:400px;
+      border-radius:30px;
+      border:none;
+      font-size:16px;
+      outline:none;
+    "
+  >
+</div>
 
  <div class="ver-mas-btn">
   <button id="btnTodos" onclick="filtrar('todos', this)">TODOS</button>
@@ -365,6 +382,26 @@ document.addEventListener("DOMContentLoaded", function () {
     btnToggle.textContent = "VER MÁS";
   };
 
+  const buscador = document.getElementById("buscador");
+
+buscador.addEventListener("input", function () {
+  const texto = this.value.toLowerCase();
+
+  productosFiltrados.forEach((p, i) => {
+    const nombre = p.querySelector("p").textContent.toLowerCase();
+
+    if (nombre.includes(texto)) {
+      if (i < mostrados) {
+        p.style.display = "block";
+        setTimeout(() => p.classList.add("visible"), 50);
+      }
+    } else {
+      p.style.display = "none";
+      p.classList.remove("visible");
+    }
+  });
+});
+  
   /* ===============================
      VER MÁS / VER MENOS (FIX)
   ================================ */
@@ -418,6 +455,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
 
 
 
