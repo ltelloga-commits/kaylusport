@@ -322,120 +322,109 @@ footer{
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+  /* ===============================
+     VARIABLES GENERALES
+  ================================ */
   let categoriaActual = "todos";
   let productosFiltrados = [];
   const porBloque = 6;
-  let mostrados = 6;
-  
+  let mostrados = porBloque;
+
   const productos = document.querySelectorAll(".producto");
-  
-        filtrar("todos", document.getElementById("btnTodos"));
-    });
-  }
+  const btnToggle = document.getElementById("btnToggle");
 
-  window.toggleProductos = function(){
-  const btn = document.getElementById("btnToggle");
-
-  mostrados += porBloque;
-
-  if(mostrados >= productosFiltrados.length){
-    mostrados = productosFiltrados.length;
-    btn.textContent = "VER MENOS";
-  }
-
-  if(btn.textContent === "VER MENOS" && mostrados === productosFiltrados.length){
-    btn.onclick = () => {
-      mostrados = porBloque;
-      btn.textContent = "VER MÁS";
-      filtrar(categoriaActual, document.querySelector(".active"));
-      document.getElementById("actuales")
-        .scrollIntoView({behavior:"smooth"});
-    };
-    return;
-  }
-
-  productosFiltrados.forEach((p, i) => {
-    if(i < mostrados){
-      p.style.display = "block";
-      setTimeout(()=>p.classList.add("visible"),50);
-    }
-  });
-}
-
-    mostrar();
-  }
-
+  /* ===============================
+     FILTRAR PRODUCTOS
+  ================================ */
   window.filtrar = function(categoria, boton){
-  categoriaActual = categoria;
-  mostrados = porBloque;
+    categoriaActual = categoria;
+    mostrados = porBloque;
 
-  document
-    .querySelectorAll("#actuales .ver-mas-btn button")
-    .forEach(b => b.classList.remove("active"));
+    // activar botón
+    document
+      .querySelectorAll("#actuales .ver-mas-btn button")
+      .forEach(b => b.classList.remove("active"));
 
-  if(boton) boton.classList.add("active");
+    if(boton) boton.classList.add("active");
 
-  productosFiltrados = [...productos].filter(p => {
-    return categoria === "todos" || p.dataset.category === categoria;
-  });
+    // filtrar productos
+    productosFiltrados = [...productos].filter(p => {
+      return categoria === "todos" || p.dataset.category === categoria;
+    });
 
-  productos.forEach(p => {
-    p.style.display = "none";
-    p.classList.remove("visible");
-  });
+    // ocultar todos
+    productos.forEach(p => {
+      p.style.display = "none";
+      p.classList.remove("visible");
+    });
 
-  productosFiltrados.forEach((p, i) => {
-    if(i < mostrados){
-      p.style.display = "block";
-      setTimeout(()=>p.classList.add("visible"),50);
+    // mostrar primeros
+    productosFiltrados.forEach((p, i) => {
+      if(i < mostrados){
+        p.style.display = "block";
+        setTimeout(()=>p.classList.add("visible"),50);
+      }
+    });
+
+    // mostrar u ocultar botón VER MÁS
+    if(productosFiltrados.length > porBloque){
+      btnToggle.style.display = "inline-block";
+      btnToggle.textContent = "VER MÁS";
+    }else{
+      btnToggle.style.display = "none";
     }
-  });
+  };
 
-  document.getElementById("btnToggle").style.display =
-    productosFiltrados.length > porBloque ? "inline-block" : "none";
+  /* ===============================
+     VER MÁS / VER MENOS
+  ================================ */
+  window.toggleProductos = function(){
+    mostrados += porBloque;
 
-  document.getElementById("btnToggle").textContent = "VER MÁS";
-}
+    if(mostrados >= productosFiltrados.length){
+      mostrados = productosFiltrados.length;
+      btnToggle.textContent = "VER MENOS";
+    }
 
+    // mostrar más productos
+    productosFiltrados.forEach((p, i) => {
+      if(i < mostrados){
+        p.style.display = "block";
+        setTimeout(()=>p.classList.add("visible"),50);
+      }
+    });
+
+    // comportamiento VER MENOS
+    if(btnToggle.textContent === "VER MENOS"){
+      btnToggle.onclick = () => {
+        mostrados = porBloque;
+        btnToggle.textContent = "VER MÁS";
+        filtrar(categoriaActual, document.querySelector(".active"));
+        document.getElementById("actuales")
+          .scrollIntoView({behavior:"smooth"});
+      };
+    }
+  };
+
+  /* ===============================
+     LIGHTBOX
+  ================================ */
   window.openLightbox = function(src){
     document.getElementById("lightbox-img").src = src;
     document.getElementById("lightbox").style.display = "flex";
-  }
+  };
 
   window.closeLightbox = function(){
     document.getElementById("lightbox").style.display = "none";
-  }
+  };
 
-  // estado inicial
-  mostrar();
+  /* ===============================
+     ESTADO INICIAL (PASO 4.4)
+  ================================ */
   filtrar("todos", document.getElementById("btnTodos"));
 
 });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
