@@ -16,28 +16,10 @@ body{
   color:#fff;
 }
 
-header{
-  text-align:center;
-  padding:20px;
-}
-
-nav a{
-  color:#fff;
-  margin:0 10px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-section{
-  padding:40px 20px;
-  max-width:1200px;
-  margin:auto;
-}
-
-h2{
-  text-align:center;
-  color:#f9d423;
-}
+header{text-align:center;padding:20px;}
+nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold;}
+section{padding:40px 20px;max-width:1200px;margin:auto;}
+h2{text-align:center;color:#f9d423;}
 
 .grid{
   display:grid;
@@ -53,17 +35,12 @@ h2{
   text-align:center;
 }
 
-/* ANIMACIÓN SOLO PARA CAMISETAS ACTUALES */
 #actuales .card{
   opacity:0;
   transform:translateY(20px);
-  transition:opacity 0.6s ease, transform 0.6s ease;
+  transition:0.6s;
 }
-
-#actuales .card.visible{
-  opacity:1;
-  transform:translateY(0);
-}
+#actuales .card.visible{opacity:1;transform:translateY(0);}
 
 .card img{
   width:100%;
@@ -74,13 +51,12 @@ h2{
   cursor:pointer;
 }
 
-.price{
-  font-weight:bold;
-  margin:8px 0;
-}
+.price{font-weight:bold;margin:8px 0;}
 
-.sizes{
-  font-size:0.9rem;
+select{
+  width:100%;
+  padding:8px;
+  border-radius:6px;
   margin-bottom:10px;
 }
 
@@ -91,91 +67,35 @@ h2{
   padding:10px 14px;
   border-radius:6px;
   text-decoration:none;
-}
-
-.ver-mas-btn{
-  text-align:center;
-  margin-top:30px;
-}
-
-.ver-mas-btn button{
-  background:#f9d423;
-  color:#000;
-  border:none;
-  padding:12px 30px;
-  font-size:16px;
-  font-weight:bold;
-  border-radius:30px;
   cursor:pointer;
 }
 
-footer{
-  text-align:center;
-  padding:20px;
+.ver-mas-btn{text-align:center;margin-top:30px;}
+.ver-mas-btn button{
+  background:#f9d423;color:#000;border:none;
+  padding:12px 30px;font-size:16px;
+  font-weight:bold;border-radius:30px;cursor:pointer;
 }
 
 .whatsapp-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:15px 18px;
-  border-radius:50%;
-  font-size:22px;
-  text-decoration:none;
-  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+  position:fixed;bottom:20px;right:20px;
+  background:#25D366;color:white;
+  padding:15px 18px;border-radius:50%;
+  font-size:22px;text-decoration:none;
   z-index:1000;
 }
 
 /* LIGHTBOX */
 .lightbox{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  position:fixed;top:0;left:0;width:100%;height:100%;
   background:rgba(0,0,0,0.85);
-  display:none;
-  align-items:center;
-  justify-content:center;
+  display:none;align-items:center;justify-content:center;
   z-index:2000;
 }
-
-.lightbox img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:12px;
-}
-
+.lightbox img{max-width:90%;max-height:90%;border-radius:12px;}
 .lightbox span{
-  position:absolute;
-  top:20px;
-  right:30px;
-  color:#fff;
-  font-size:30px;
-  cursor:pointer;
-}
-
-  .filtro-btn{
-  background:#f9d423;
-  color:#000;
-  border:none;
-  padding:10px 18px;
-  margin:4px;
-  border-radius:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.filtro-btn.activo{
-  background:#25D366;
-  color:#fff;
-}
-
-  .ver-mas-btn button.active{
-  background:#25D366;
-  color:#fff;
+  position:absolute;top:20px;right:30px;
+  color:#fff;font-size:30px;cursor:pointer;
 }
 </style>
 </head>
@@ -186,79 +106,29 @@ footer{
   <div style="background:#f9d423;color:#000;padding:10px;font-weight:700;">
     🚚 Envíos a toda la región y el Perú
   </div>
-
-  <img src="logo-kaylusport.png" style="max-width:140px;margin:20px auto;display:block;">
   <h1>KayluSport</h1>
-  <p>Pasión por el fútbol • Camisetas y accesorios deportivos</p>
-
-  <nav>
-    <a href="#actuales">Actuales</a>
-    <a href="#retro">Retro</a>
-    <a href="#short">Short</a>
-    <a href="#casacas">Casacas</a>
-    <a href="#medias">Medias</a>
-    <a href="#souvenirs">Souvenirs</a>
-  </nav>
+  <p>Pasión por el fútbol</p>
 </header>
 
-<!-- CAMISETAS ACTUALES -->
 <section id="actuales">
 <h2>Camisetas Actuales</h2>
+<p id="contador" style="text-align:center;font-weight:bold;"></p>
 
-  <p id="contador" style="text-align:center; margin-bottom:20px; font-weight:bold;"></p>
-  
-  <div style="text-align:center; margin:20px 0;">
-  <input 
-    type="text" 
-    id="buscador"
-    placeholder="Buscar camiseta..."
-    style="
-      padding:12px 16px;
-      width:100%;
-      max-width:400px;
-      border-radius:30px;
-      border:none;
-      font-size:16px;
-      outline:none;
-    "
-  >
+<div class="grid">
+
+<div class="card producto" data-category="peru" data-nombre="Universitario" data-precio="50">
+  <img src="actual-u.jpg" onclick="openLightbox(this.src)">
+  <p>Universitario</p>
+  <div class="price">S/ 50.00</div>
+  <select>
+    <option value="">Selecciona talla</option>
+    <option>S</option><option>M</option><option>L</option><option>XL</option>
+  </select>
+  <a class="whatsapp" onclick="comprarWhatsApp(this)">Comprar</a>
 </div>
 
- <div class="ver-mas-btn">
-  <button id="btnTodos" onclick="filtrar('todos', this)">TODOS</button>
-  <button id="btnPeru" onclick="filtrar('peru', this)">PERÚ</button>
-  <button id="btnEuropa" onclick="filtrar('europa', this)">EUROPA</button>
-  <button id="btnSelecciones" onclick="filtrar('selecciones', this)">SELECCIONES</button>
-  <button id="btnResto" onclick="filtrar('resto-del-mundo', this)">RESTO DEL MUNDO</button>
-</div>
-
-<div class="grid" id="productosActuales">
-
-  <!-- AGREGA TODAS TUS CAMISETAS AQUÍ -->
-  <div class="card producto" data-category="peru"><img src="actual-u.jpg" onclick="openLightbox(this.src)"><p>Universitario</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="peru"><img src="actual-al.jpg" onclick="openLightbox(this.src)"><p>Alianza Lima</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-rm.jpg" onclick="openLightbox(this.src)"><p>Real Madrid</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-che-a.jpg" onclick="openLightbox(this.src)"><p>Chelsea</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-juve-a.jpg" onclick="openLightbox(this.src)"><p>Juventus</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-bayer.jpg" onclick="openLightbox(this.src)"><p>Bayern</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-bar-alt.jpg" onclick="openLightbox(this.src)"><p>Barcelona</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="selecciones"><img src="actual-port-negro.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="selecciones"><img src="actual-peru.jpg" onclick="openLightbox(this.src)"><p>Perú</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-miami.jpg" onclick="openLightbox(this.src)"><p>Inte Miami</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-miami2.jpg" onclick="openLightbox(this.src)"><p>Inter Miami</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="selecciones"><img src="actual-portu1.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-palme.jpg" onclick="openLightbox(this.src)"><p>Palmeiras</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-rm2.jpg" onclick="openLightbox(this.src)"><p>Real Madrid</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-juve.jpg" onclick="openLightbox(this.src)"><p>Juventus</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-amadrid.jpg" onclick="openLightbox(this.src)"><p>Atletico Madrid</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="selecciones"><img src="actual-portu2.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-pal2.jpg" onclick="openLightbox(this.src)"><p>Palmeiras</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-tote2.jpg" onclick="openLightbox(this.src)"><p>Tottenham</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-chel3.jpg" onclick="openLightbox(this.src)"><p>Chelsea</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-tote.jpg" onclick="openLightbox(this.src)"><p>Tottenham</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-live2.jpg" onclick="openLightbox(this.src)"><p>Liverpool</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-all3.jpg" onclick="openLightbox(this.src)"><p>All Nassr</p><div class="price">S/ 50.00</div></div>
-
+<!-- COPIA ESTE BLOQUE PARA TODAS TUS CAMISETAS -->
+<!-- SOLO CAMBIA data-nombre, data-precio e imagen -->
 
 </div>
 
@@ -267,220 +137,42 @@ footer{
 </div>
 </section>
 
-<section id="retro">
-<h2>Camisetas Retro</h2>
-<div class="grid">
-<div class="card">
-<p>Camiseta Retro Clásica</p>
-<div class="price">S/ 60.00</div>
-<div class="sizes">S - M - L - XL</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="short">
-<h2>Short</h2>
-<div class="grid">
-<div class="card">
-<p>Short Deportivo</p>
-<div class="price">S/ 25.00</div>
-<div class="sizes">S - M - L</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="casacas">
-<h2>Casacas y Buzos</h2>
-<div class="grid">
-<div class="card">
-<p>Casaca Oficial</p>
-<div class="price">S/ 130.00</div>
-<div class="sizes">M - L - XL</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="medias">
-<h2>Medias</h2>
-<div class="grid">
-<div class="card">
-<p>Medias de Fútbol</p>
-<div class="price">S/ 10.00</div>
-<div class="sizes">Talla Única</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<section id="souvenirs">
-<h2>Souvenirs</h2>
-<div class="grid">
-<div class="card">
-<p>Llavero Futbolero</p>
-<div class="price">S/ 8.00</div>
-<a class="whatsapp" href="https://wa.me/51971245962">Comprar</a>
-</div>
-</div>
-</section>
-
-<footer>
-<p>© 2026 KayluSport | Pasión futbolera</p>
-</footer>
-
 <a class="whatsapp-float" href="https://wa.me/51971245962">💬</a>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <span onclick="closeLightbox()">✖</span>
   <img id="lightbox-img">
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+function comprarWhatsApp(btn){
+  const card = btn.closest(".card");
+  const nombre = card.dataset.nombre;
+  const precio = card.dataset.precio;
+  const talla = card.querySelector("select").value;
 
-  let categoriaActual = "todos";
-  let productosFiltrados = [];
-  const porBloque = 6;
-  let mostrados = porBloque;
-
-  const productos = document.querySelectorAll(".producto");
-  const btnToggle = document.getElementById("btnToggle");
-  const buscador = document.getElementById("buscador");
-
-  /* ===============================
-     CONTADOR
-  ================================ */
-  function actualizarContador(){
-    const visiblesAhora = productosFiltrados.filter(
-      p => p.style.display !== "none"
-    ).length;
-
-    document.getElementById("contador").textContent =
-      `Mostrando ${visiblesAhora} de ${productosFiltrados.length} camisetas`;
+  if(!talla){
+    alert("Selecciona una talla");
+    return;
   }
 
-  /* ===============================
-     FILTRAR
-  ================================ */
-  window.filtrar = function(categoria, boton){
-    categoriaActual = categoria;
-    mostrados = porBloque;
+  const msg = `Hola, quiero la camiseta ${nombre}, talla ${talla}, precio S/ ${precio}`;
+  const url = `https://wa.me/51971245962?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+}
 
-    document
-      .querySelectorAll("#actuales .ver-mas-btn button")
-      .forEach(b => b.classList.remove("active"));
-
-    if(boton) boton.classList.add("active");
-
-    productosFiltrados = [...productos].filter(p =>
-      categoria === "todos" || p.dataset.category === categoria
-    );
-
-    productos.forEach(p => {
-      p.style.display = "none";
-      p.classList.remove("visible");
-    });
-
-    productosFiltrados.forEach((p, i) => {
-      if(i < mostrados){
-        p.style.display = "block";
-        setTimeout(()=>p.classList.add("visible"),50);
-      }
-    });
-
-    btnToggle.style.display =
-      productosFiltrados.length > porBloque ? "inline-block" : "none";
-
-    btnToggle.textContent = "VER MÁS";
-    actualizarContador();
-  };
-
-  /* ===============================
-     BUSCADOR
-  ================================ */
-  buscador.addEventListener("input", function () {
-    const texto = this.value.toLowerCase();
-
-    productos.forEach(p => {
-      p.style.display = "none";
-      p.classList.remove("visible");
-    });
-
-    productosFiltrados = [...productos].filter(p => {
-      const nombre = p.querySelector("p").textContent.toLowerCase();
-      return (
-        (categoriaActual === "todos" || p.dataset.category === categoriaActual) &&
-        nombre.includes(texto)
-      );
-    });
-
-    productosFiltrados.forEach(p => {
-      p.style.display = "block";
-      setTimeout(()=>p.classList.add("visible"),50);
-    });
-
-    btnToggle.style.display = "none";
-    actualizarContador();
-  });
-
-  /* ===============================
-     VER MÁS / VER MENOS
-  ================================ */
-  window.toggleProductos = function(){
-
-    if(btnToggle.textContent === "VER MÁS"){
-      mostrados += porBloque;
-
-      if(mostrados >= productosFiltrados.length){
-        mostrados = productosFiltrados.length;
-        btnToggle.textContent = "VER MENOS";
-      }
-
-    } else {
-      mostrados = porBloque;
-      btnToggle.textContent = "VER MÁS";
-
-      document.getElementById("actuales")
-        .scrollIntoView({behavior:"smooth"});
-    }
-
-    productos.forEach(p => {
-      p.style.display = "none";
-      p.classList.remove("visible");
-    });
-
-    productosFiltrados.forEach((p, i) => {
-      if(i < mostrados){
-        p.style.display = "block";
-        setTimeout(()=>p.classList.add("visible"),50);
-      }
-    });
-
-    actualizarContador();
-  };
-
-  /* ===============================
-     LIGHTBOX
-  ================================ */
-  window.openLightbox = function(src){
-    document.getElementById("lightbox-img").src = src;
-    document.getElementById("lightbox").style.display = "flex";
-  };
-
-  window.closeLightbox = function(){
-    document.getElementById("lightbox").style.display = "none";
-  };
-
-  /* ===============================
-     ESTADO INICIAL
-  ================================ */
-  filtrar("todos", document.getElementById("btnTodos"));
-
-});
+function openLightbox(src){
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+function closeLightbox(){
+  document.getElementById("lightbox").style.display = "none";
+}
 </script>
+
+</body>
+</html>
+
 
 
 
