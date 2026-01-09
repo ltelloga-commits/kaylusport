@@ -387,14 +387,16 @@ document.addEventListener("DOMContentLoaded", function () {
 buscador.addEventListener("input", function () {
   const texto = this.value.toLowerCase();
 
-  productosFiltrados.forEach((p, i) => {
+  // 🔥 si escribe, mostramos todos automáticamente
+  mostrados = productosFiltrados.length;
+  document.getElementById("btnToggle").textContent = "VER MENOS";
+
+  productosFiltrados.forEach((p) => {
     const nombre = p.querySelector("p").textContent.toLowerCase();
 
     if (nombre.includes(texto)) {
-      if (i < mostrados) {
-        p.style.display = "block";
-        setTimeout(() => p.classList.add("visible"), 50);
-      }
+      p.style.display = "block";
+      setTimeout(() => p.classList.add("visible"), 50);
     } else {
       p.style.display = "none";
       p.classList.remove("visible");
@@ -455,6 +457,7 @@ buscador.addEventListener("input", function () {
 
 });
 </script>
+
 
 
 
