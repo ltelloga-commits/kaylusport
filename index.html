@@ -387,16 +387,26 @@ document.addEventListener("DOMContentLoaded", function () {
 buscador.addEventListener("input", function () {
   const texto = this.value.toLowerCase();
 
-  // 🔥 si escribe, mostramos todos automáticamente
-  mostrados = productosFiltrados.length;
-  document.getElementById("btnToggle").textContent = "VER MENOS";
+  // Si no hay texto → volver al estado normal
+  if(texto === ""){
+    mostrados = porBloque;
+    btnToggle.textContent = "VER MÁS";
+    filtrar(categoriaActual, document.querySelector(".active"));
+    return;
+  }
 
-  productosFiltrados.forEach((p) => {
+  // 🔥 BUSQUEDA ACTIVA
+  btnToggle.style.display = "none"; // ocultamos ver más
+
+  productos.forEach(p => {
     const nombre = p.querySelector("p").textContent.toLowerCase();
 
-    if (nombre.includes(texto)) {
+    if (
+      (categoriaActual === "todos" || p.dataset.category === categoriaActual) &&
+      nombre.includes(texto)
+    ) {
       p.style.display = "block";
-      setTimeout(() => p.classList.add("visible"), 50);
+      setTimeout(()=>p.classList.add("visible"),50);
     } else {
       p.style.display = "none";
       p.classList.remove("visible");
@@ -457,6 +467,7 @@ buscador.addEventListener("input", function () {
 
 });
 </script>
+
 
 
 
