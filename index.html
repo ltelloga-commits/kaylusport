@@ -177,6 +177,21 @@ footer{
   background:#25D366;
   color:#fff;
 }
+
+  .talla-select{
+  width:100%;
+  padding:8px;
+  margin:10px 0;
+  border-radius:6px;
+  font-size:14px;
+}
+
+.btn-wsp{
+  display:block;
+  text-align:center;
+  margin-top:8px;
+}
+  
 </style>
 </head>
 
@@ -235,30 +250,352 @@ footer{
 <div class="grid" id="productosActuales">
 
   <!-- AGREGA TODAS TUS CAMISETAS AQUÍ -->
-  <div class="card producto" data-category="peru"><img src="actual-u.jpg" onclick="openLightbox(this.src)"><p>Universitario</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="peru"><img src="actual-al.jpg" onclick="openLightbox(this.src)"><p>Alianza Lima</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-rm.jpg" onclick="openLightbox(this.src)"><p>Real Madrid</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-che-a.jpg" onclick="openLightbox(this.src)"><p>Chelsea</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-juve-a.jpg" onclick="openLightbox(this.src)"><p>Juventus</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-bayer.jpg" onclick="openLightbox(this.src)"><p>Bayern</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-bar-alt.jpg" onclick="openLightbox(this.src)"><p>Barcelona</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="selecciones"><img src="actual-port-negro.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="selecciones"><img src="actual-peru.jpg" onclick="openLightbox(this.src)"><p>Perú</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-miami.jpg" onclick="openLightbox(this.src)"><p>Inte Miami</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-miami2.jpg" onclick="openLightbox(this.src)"><p>Inter Miami</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="selecciones"><img src="actual-portu1.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-palme.jpg" onclick="openLightbox(this.src)"><p>Palmeiras</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-rm2.jpg" onclick="openLightbox(this.src)"><p>Real Madrid</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-juve.jpg" onclick="openLightbox(this.src)"><p>Juventus</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-amadrid.jpg" onclick="openLightbox(this.src)"><p>Atletico Madrid</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="selecciones"><img src="actual-portu2.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-pal2.jpg" onclick="openLightbox(this.src)"><p>Palmeiras</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-tote2.jpg" onclick="openLightbox(this.src)"><p>Tottenham</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-chel3.jpg" onclick="openLightbox(this.src)"><p>Chelsea</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-tote.jpg" onclick="openLightbox(this.src)"><p>Tottenham</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="europa"><img src="actual-live2.jpg" onclick="openLightbox(this.src)"><p>Liverpool</p><div class="price">S/ 50.00</div></div>
-  <div class="card producto" data-category="resto-del-mundo"><img src="actual-all3.jpg" onclick="openLightbox(this.src)"><p>All Nassr</p><div class="price">S/ 50.00</div></div>
+  <div class="card producto" data-category="peru"><img src="actual-u.jpg" onclick="openLightbox(this.src)"><p>Universitario</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
 
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="peru"><img src="actual-al.jpg" onclick="openLightbox(this.src)"><p>Alianza Lima</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-rm.jpg" onclick="openLightbox(this.src)"><p>Real Madrid</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-che-a.jpg" onclick="openLightbox(this.src)"><p>Chelsea</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-juve-a.jpg" onclick="openLightbox(this.src)"><p>Juventus</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-bayer.jpg" onclick="openLightbox(this.src)"><p>Bayern</p><div class="price">S/ 50.00</div>
+  
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-bar-alt.jpg" onclick="openLightbox(this.src)"><p>Barcelona</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="selecciones"><img src="actual-port-negro.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="selecciones"><img src="actual-peru.jpg" onclick="openLightbox(this.src)"><p>Perú</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="resto-del-mundo"><img src="actual-miami.jpg" onclick="openLightbox(this.src)"><p>Inte Miami</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="resto-del-mundo"><img src="actual-miami2.jpg" onclick="openLightbox(this.src)"><p>Inter Miami</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="selecciones"><img src="actual-portu1.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="resto-del-mundo"><img src="actual-palme.jpg" onclick="openLightbox(this.src)"><p>Palmeiras</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-rm2.jpg" onclick="openLightbox(this.src)"><p>Real Madrid</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-juve.jpg" onclick="openLightbox(this.src)"><p>Juventus</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-amadrid.jpg" onclick="openLightbox(this.src)"><p>Atletico Madrid</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="selecciones"><img src="actual-portu2.jpg" onclick="openLightbox(this.src)"><p>Portugal</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="resto-del-mundo"><img src="actual-pal2.jpg" onclick="openLightbox(this.src)"><p>Palmeiras</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-tote2.jpg" onclick="openLightbox(this.src)"><p>Tottenham</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-chel3.jpg" onclick="openLightbox(this.src)"><p>Chelsea</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-tote.jpg" onclick="openLightbox(this.src)"><p>Tottenham</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="europa"><img src="actual-live2.jpg" onclick="openLightbox(this.src)"><p>Liverpool</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
+  <div class="card producto" data-category="resto-del-mundo"><img src="actual-all3.jpg" onclick="openLightbox(this.src)"><p>All Nassr</p><div class="price">S/ 50.00</div>
+  <!-- SELECTOR DE TALLA -->
+  <select class="talla-select">
+    <option value="">Selecciona talla</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp btn-wsp" href="#" onclick="enviarWhatsApp(this)">
+    Comprar por WhatsApp
+  </a>
+  </div>
 
 </div>
 
@@ -456,7 +793,30 @@ document.addEventListener("DOMContentLoaded", function () {
   filtrar("todos", document.getElementById("btnTodos"));
 
 });
+
+function enviarWhatsApp(btn){
+  const card = btn.closest(".card");
+  const producto = card.dataset.producto;
+  const talla = card.querySelector(".talla-select").value;
+  const precio = card.querySelector(".price").textContent;
+
+  if(!talla){
+    alert("Por favor selecciona una talla");
+    return;
+  }
+
+  const mensaje = `Hola 👋, quiero comprar la camiseta:\n\n` +
+                  `🏷 Producto: ${producto}\n` +
+                  `📏 Talla: ${talla}\n` +
+                  `💰 Precio: ${precio}`;
+
+  const telefono = "51971245962";
+  const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url, "_blank");
+}
 </script>
+
 
 
 
