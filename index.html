@@ -796,7 +796,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function enviarWhatsApp(btn){
   const card = btn.closest(".card");
-  const producto = card.dataset.producto;
+  const producto = card.querySelector("p").textContent;
   const talla = card.querySelector(".talla-select").value;
   const precio = card.querySelector(".price").textContent;
 
@@ -805,10 +805,11 @@ function enviarWhatsApp(btn){
     return;
   }
 
-  const mensaje = `Hola 👋, quiero comprar la camiseta:\n\n` +
-                  `🏷 Producto: ${producto}\n` +
-                  `📏 Talla: ${talla}\n` +
-                  `💰 Precio: ${precio}`;
+  const mensaje =
+    `Hola 👋, quiero comprar la camiseta:\n\n` +
+    `🏷 Producto: ${producto}\n` +
+    `📏 Talla: ${talla}\n` +
+    `💰 Precio: ${precio}`;
 
   const telefono = "51971245962";
   const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
@@ -816,6 +817,7 @@ function enviarWhatsApp(btn){
   window.open(url, "_blank");
 }
 </script>
+
 
 
 
